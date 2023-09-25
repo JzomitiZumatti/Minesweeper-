@@ -2,7 +2,6 @@ import java.util.Random;
 public class Field {
     private final int SIZE = 9;
     static int numberOfMines;
-    //private String[][] arr = new String[SIZE][SIZE];
     private char[][] arr = new char[SIZE][SIZE];
 
     public Field(int numberOfMines) {
@@ -27,10 +26,6 @@ public class Field {
         while (minesPlaced < numberOfMines) {
             int row = random.nextInt(SIZE);
             int col = random.nextInt(SIZE);
-//            if (!arr[row][col].equals("X")) {
-//                arr[row][col] = "X";
-//                minesPlaced++;
-//            }
             if (arr[row][col] != 'X') {
                 arr[row][col] = 'X';
                 minesPlaced++;
@@ -41,12 +36,6 @@ public class Field {
     public void calculateNumbers() {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-//                if (!arr[i][j].equals("X")) {
-//                    int count = countAdjacentMines(i, j);
-//                    if (count > 0) {
-//                        arr[i][j] = String.valueOf(count);
-//                    }
-//                }
                 if (arr[i][j] != 'X') {
                     int count = countAdjacentMines(i, j);
                     if (count > 0) {
@@ -63,9 +52,6 @@ public class Field {
             for (int j = -1; j <= 1; j++) {
                 int newRow = row + i;
                 int newCol = col + j;
-//                if (newRow >= 0 && newRow < SIZE && newCol >= 0 && newCol < SIZE && arr[newRow][newCol].equals("X")) {
-//                    count++;
-//                }
                 if (newRow >= 0 && newRow < SIZE && newCol >= 0 && newCol < SIZE && arr[newRow][newCol] == 'X') {
                     count++;
                 }
